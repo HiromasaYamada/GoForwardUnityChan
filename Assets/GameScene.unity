@@ -614,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b00a38f557c1f842b41981bdcb18640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 1204635560990388, guid: 772ea5f571fe24d4fa4b7492fa0392be, type: 2}
 --- !u!82 &1461283043
 AudioSource:
   m_ObjectHideFlags: 0

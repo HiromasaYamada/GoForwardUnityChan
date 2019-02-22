@@ -8,6 +8,7 @@ TagManager:
   - Groundtag
   - CubeTag
   - UnityChan
+  - Bomb
   layers:
   - Default
   - TransparentFX

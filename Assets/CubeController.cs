@@ -28,5 +28,9 @@ public class CubeController : MonoBehaviour {
         {
             GetComponent<AudioSource>().Stop();
         }
+        if (other.gameObject.tag == "Bomb")
+        {
+            Destroy(gameObject);
+        }
     }
 }

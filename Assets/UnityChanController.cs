@@ -8,6 +8,8 @@ public class UnityChanController : MonoBehaviour {
     private float dump = 0.8f;
     float jumpVelocity = 20;
     private float deadLine = -9;
+    public GameObject bombPrefab;
+    public int bombCount;
 
     // Use this for initialization
     void Start()
@@ -23,10 +25,12 @@ public class UnityChanController : MonoBehaviour {
         bool isGround = (transform.position.y > this.groundLevel) ? false : true;
         this.animator.SetBool("isGround", isGround);
         GetComponent<AudioSource>().volume = (isGround) ? 1 : 0;
+
         if (Input.GetMouseButtonDown(0) && isGround)
         {
             this.rigid2D.velocity = new Vector2(0, this.jumpVelocity);
         }
+
         if (Input.GetMouseButton(0) == false)
         {
             if (this.rigid2D.velocity.y > 0)
@@ -34,10 +38,18 @@ public class UnityChanController : MonoBehaviour {
                 this.rigid2D.velocity *= this.dump;
             }
         }
+
         if (transform.position.x < this.deadLine)
         {
             GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
             Destroy(gameObject);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+                GameObject bomb = Instantiate(bombPrefab) as GameObject;
+                bomb.transform.position = this.transform.position;
+            }
         }
     }
 }
